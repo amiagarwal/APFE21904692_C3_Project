@@ -63,4 +63,33 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void get_order_value_should_return_388_if_first_two_items_worth_388_selected_from_menu() {
+        // Arrange
+        String[] selectedItems = new String[] { "Sweet corn soup", "Vegetable lasagne" };
+        int expectedOrderValue = 388;
+
+        // Act
+        int orderValue = restaurant.getOrderValue(selectedItems);
+
+        // Assert
+        assertEquals(expectedOrderValue, orderValue);
+    }
+
+    @Test
+    public void get_order_value_should_return_0_if_no_items_selected_from_menu() {
+        // Arrange
+        String[] selectedItems = new String[] {};
+        int expectedOrderValue = 0;
+
+        // Act
+        int orderValue = restaurant.getOrderValue(selectedItems);
+
+        // Assert
+        assertEquals(expectedOrderValue, orderValue);
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
